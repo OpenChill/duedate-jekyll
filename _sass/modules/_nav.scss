@@ -1,0 +1,25 @@
+.site-nav {
+  background-color: #2e2e2e;
+  padding: 2em;
+
+  &__links {
+    margin-top: 2em;
+    @media #{$mq-medium} {
+      float: right;
+      margin-top: 0;
+    }
+  }
+
+  &__link {
+    color: white;
+    text-decoration: none;
+    padding: 0 .5em;
+  }
+
+  &__item {
+    @media #{$mq-medium} {
+      display: inline-block;
+    }
+  }
+
+}

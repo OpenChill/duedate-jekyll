@@ -1,0 +1,88 @@
+---
+layout: page
+title: Duedate
+description: "Projects & Assignment Deadlines"
+---
+
+<h2>Assigments Due</h2>
+
+<ul class="assigments">
+  {% for assigment in site.assigments %}
+  <li class="assigment box">
+    <table>
+      <tr>
+        <th>Module</th>
+        <td>{{assigment.module}}</td>
+      </tr>
+      <tr>
+        <th>Assigment</th>
+        <td>{{assigment.name}}</td>
+      </tr>
+      <tr>
+        <th>Due</th>
+        <td>{{assigment.due}}</td>
+      </tr>
+
+      {% if assigment.details %}
+
+      <tr>
+        <th>Details</th>
+        <td>assigment.details</td>
+      </tr>
+
+      {% endif %}
+
+    </table>
+  </li>
+  {% endfor %}
+</ul>
+
+<script type="text/javascript">
+
+  (function() {
+
+    var todaysDate = new Date();
+
+    function countdown(el) {
+
+      var dueDate = new Date(el.innerHTML);
+      var difference = dueDate - todaysDate;
+
+      var id = setInterval(function() {
+
+        var days = Math.floor(difference / day);
+        var hours = Math.floor((difference % day) / hour);
+        var minutes = Math.floor((difference % hour) / minute);
+        var seconds = Math.floor((difference % minute) / second);
+
+        if (difference !== 0) {
+
+        } else {
+          // write assigment due
+          // kill interval
+          clearInterval(id);
+        }
+      })
+
+    }
+
+    els.forEach(function(e) {
+      countdown(e);
+    })
+
+    var assigmentElsParent = document.querySelector(".assigments");
+      []
+      .splice()
+      .call(document.querySelectorAll(".assigment"))
+      .sort(function(a,b) {
+        return parseInt(a.innerHTML) - parseInt(b.innerHTML)
+      }).forEach(function(item) {
+        assigmentElsParent.appendChild(item);
+      });
+
+  }())
+  // TODO:
+  // 1. Sort assigments based on duedate
+
+  // 2. Add countdown clock to each assigment
+</script>
